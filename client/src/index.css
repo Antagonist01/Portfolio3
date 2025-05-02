@@ -1,0 +1,295 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Colors */
+  --white: hsla(0, 0%, 100%, 1);
+  --white_a8: hsla(0, 0%, 100%, 0.08);
+  --white_a12: hsla(0, 0%, 100%, 0.12);
+  --cultured: hsla(220, 20%, 97%, 1);
+  --snow: hsla(345, 57%, 97%, 1);
+  --manatee: hsla(219, 10%, 62%, 1);
+  --black-coral: hsla(220, 12%, 43%, 1);
+  --cadet-blue-crayola_a20: hsla(222, 23%, 71%, 0.2);
+  --cinnamon-satin: hsla(344, 53%, 62%, 1);
+  --raisin-black: hsla(216, 14%, 14%, 1);
+  --raisin-black_a6: hsla(216, 14%, 14%, 0.06);
+  --gunmetal: hsla(214, 15%, 21%, 1);
+  --charcoal: hsla(219, 22%, 26%, 1);
+  
+  /* Typography */
+  --ff-manrope: 'Manrope', sans-serif;
+  --fs-1: calc(2.7rem + 1.38vw);
+  --fs-2: calc(2.6rem + .66vw);
+  --fs-3: calc(2.6rem + .24vw);
+  --fs-4: 1.9rem;
+  --fs-5: 1.8rem;
+  --fs-6: 1.7rem;
+  --fs-7: 1.5rem;
+  --fs-8: 1.4rem;
+  --fw-700: 700;
+  
+  /* Spacing */
+  --section-padding: 90px;
+  
+  /* Shadow */
+  --shadow-1: 0 0 20px hsla(216, 14%, 14%, 0.05);
+  --shadow-2: 0 4px 28px hsla(216, 14%, 14%, 0.07);
+  
+  /* Border Radius */
+  --radius-circle: 50%;
+  --radius-pill: 100px;
+  --radius-8: 8px;
+  --radius-6: 6px;
+  
+  /* Transitions */
+  --transition-1: 0.25s ease;
+  --transition-2: 0.5s ease;
+  --transition-3: 0.3s ease-in-out;
+
+  /* Light/Dark Theme Variables */
+  --background: 0 0% 100%;
+  --foreground: 216 14% 14%;
+  --muted: 210 20% 98%;
+  --muted-foreground: 220 12% 43%;
+}
+
+@media (min-width: 992px) {
+  :root {
+    --section-padding: 120px;
+  }
+}
+
+.dark {
+  --background: 216 14% 14%;
+  --foreground: 0 0% 100%;
+  --muted: 214 15% 21%;
+  --muted-foreground: 219 10% 62%;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.bg-grid-pattern {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+html {
+  font-family: var(--ff-manrope);
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+
+/* Increase base font size for better desktop readability */
+body {
+  font-size: 1.8rem;
+  @apply bg-background text-foreground antialiased;
+}
+
+/* Increase font sizes for desktop viewing */
+@media (min-width: 1024px) {
+  body {
+    font-size: 2rem;
+  }
+  
+  h1 {
+    font-size: calc(var(--fs-1) * 1.2);
+  }
+  
+  h2 {
+    font-size: calc(var(--fs-2) * 1.15);
+  }
+  
+  h3 {
+    font-size: calc(var(--fs-3) * 1.1);
+  }
+  
+  p {
+    font-size: 2rem;
+  }
+}
+
+/* Increase font sizes globally */
+h1 {
+  font-size: var(--fs-1);
+  font-weight: var(--fw-700);
+}
+
+h2 {
+  font-size: var(--fs-2);
+  font-weight: var(--fw-700);
+}
+
+h3 {
+  font-size: var(--fs-3);
+  font-weight: var(--fw-700);
+}
+
+h4 {
+  font-size: var(--fs-4);
+  font-weight: var(--fw-700);
+}
+
+p {
+  font-size: 1.8rem;
+  line-height: 1.6;
+}
+
+/* Animations for reveal effects */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.6s ease forwards;
+}
+
+.animate-delay-100 {
+  animation-delay: 100ms;
+}
+
+.animate-delay-200 {
+  animation-delay: 200ms;
+}
+
+.animate-delay-300 {
+  animation-delay: 300ms;
+}
+
+.animate-delay-400 {
+  animation-delay: 400ms;
+}
+
+.animate-delay-500 {
+  animation-delay: 500ms;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: hsl(0, 0%, 80%);
+}
+
+::-webkit-scrollbar-track {
+  background-color: hsl(0, 0%, 98%);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background-color: hsl(0, 0%, 30%);
+}
+
+.dark ::-webkit-scrollbar-track {
+  background-color: hsl(216, 14%, 14%);
+}
+
+/* Shadcn component theme variables */
+:root {
+  --popover: 0 0% 100%;
+  --popover-foreground: 220 12% 43%;
+  --card: 0 0% 100%;
+  --card-foreground: 216 14% 14%;
+  --border: 220 20% 97%;
+  --input: 220 20% 97%;
+  /* Updated color scheme for better aesthetics */
+  --primary: 220 70% 50%; /* Rich blue */
+  --primary-foreground: 210 20% 98%;
+  --secondary: 265 70% 60%; /* Vibrant purple */
+  --secondary-foreground: 0 0% 100%;
+  --accent: 190 90% 50%; /* Bright cyan */
+  --accent-foreground: 216 14% 14%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 20% 98%;
+  --ring: 220 70% 50%;
+  --radius: 0.5rem;
+  
+  /* Custom gradient presets */
+  --gradient-blue-purple: linear-gradient(135deg, hsl(220, 70%, 50%), hsl(265, 70%, 60%));
+  --gradient-cyan-blue: linear-gradient(135deg, hsl(190, 90%, 50%), hsl(220, 70%, 50%));
+  --gradient-purple-pink: linear-gradient(135deg, hsl(265, 70%, 60%), hsl(330, 80%, 60%));
+}
+
+.dark {
+  --popover: 216 14% 14%;
+  --popover-foreground: 0 0% 100%;
+  --card: 216 14% 14%;
+  --card-foreground: 0 0% 100%;
+  --border: 214 15% 21%;
+  --input: 214 15% 21%;
+  /* Updated dark mode colors to match light mode scheme */
+  --primary: 220 70% 60%; /* Brighter blue for dark mode */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 265 70% 70%; /* Brighter purple for dark mode */
+  --secondary-foreground: 216 14% 14%;
+  --accent: 190 90% 60%; /* Brighter cyan for dark mode */
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 70% 50%;
+  --destructive-foreground: 0 0% 100%;
+  --ring: 220 70% 60%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
